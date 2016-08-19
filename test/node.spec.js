@@ -1,7 +1,7 @@
 const Node = require('../src/node');
 
-describe('Node', () => {
-	describe.only('#constructor', () => {
+describe.only('Node', () => {
+	describe('#constructor', () => {
 		const node = new Node(42, 15);
 
 		it('assigns passed data and priority to this', () => {
@@ -16,7 +16,7 @@ describe('Node', () => {
 		});
 	});
 
-	describe.only('#appendChild', () => {
+	describe('#appendChild', () => {
 		let parent, leftChild, rightChild;
 
 		beforeEach(() => {
@@ -25,13 +25,13 @@ describe('Node', () => {
 			rightChild = new Node(98, 69);
 		});
 
-		it.only('assigns passed child to this.left', () => {
+		it('assigns passed child to this.left', () => {
 			parent.appendChild(leftChild);
 			expect(parent.left).to.equal(leftChild);
 			expect(parent.right).to.equal(null);
 		});
 
-		it.only('assigns passed child to this.right if this.left exists', () => {
+		it('assigns passed child to this.right if this.left exists', () => {
 			parent.appendChild(leftChild);
 			parent.appendChild(rightChild);
 
