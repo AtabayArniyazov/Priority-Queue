@@ -13,20 +13,24 @@ class Node {
 		} else if(this.right === null){
 			this.right = node;
 		} 
+		node.parent = this;
 	}
 
 	removeChild(node) {
+
 		if(this.left === node) {
 			this.left = null;
 		} else if(this.right === node) {
 			this.right = null;
 		} else if(this.parent !== node) {
-			throw new Error("passed node is not a child of this node");
+			throw new Error("node is not a child of this node");
 		}
 	}
 
 	remove() {
-		
+		if(this.parent) {
+			this.parent.removeChild(this);
+		}
 	}
 
 	swapWithParent() {
