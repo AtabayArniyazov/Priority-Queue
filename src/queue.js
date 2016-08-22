@@ -16,14 +16,20 @@ class PriorityQueue {
 
 	shift() {
 		this.heap.pop();
+
 	}
 
 	size() {
-		
+		var currentSize = this.length;
+		return currentSize;
 	}
 
 	isEmpty() {
-		
+		if(this.isEmpty === true) {
+			return true;
+		} else {
+			false;
+		}
 	}
 }
 

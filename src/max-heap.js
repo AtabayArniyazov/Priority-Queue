@@ -20,6 +20,7 @@ class MaxHeap {
 
 	detachRoot() {
 		this.root = null;
+		
 	}
 
 	restoreRootFromLastInsertedNode(detached) {

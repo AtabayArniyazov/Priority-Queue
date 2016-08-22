@@ -17,12 +17,13 @@ class Node {
 	}
 
 	removeChild(node) {
+		node.parent = null;
 
 		if(this.left === node) {
 			this.left = null;
 		} else if(this.right === node) {
 			this.right = null;
-		} else if(this.parent !== node) {
+		} else {
 			throw new Error("node is not a child of this node");
 		}
 	}
@@ -34,7 +35,20 @@ class Node {
 	}
 
 	swapWithParent() {
-		
+		let parent = this.parent;
+
+		if(this.parent && this.parent.left === this && !this.parent.parent) {
+			this.parent.parent = this;
+		}
+
+		if(this.parent && this.parent.parent) {
+			this.parent = this.parent.parent;
+		} 
+
+		if(this.parent && this.parent.left) {
+			this.parent.left.parent = this;
+		}
+
 	}
 }
 
